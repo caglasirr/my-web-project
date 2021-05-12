@@ -1,0 +1,32 @@
+ nav{
+     background-color:#292929 /* rgb(51, 51, 51); */;
+     
+}
+
+.nav-item{
+    margin-left: 40px;
+}
+
+#ul-nav{
+    color: white;
+}
+
+.tryfree{
+    list-style-type: none;
+    margin: 1.5em;
+    font-size: 1.4em;
+}
+
+li{
+    list-style: none;
+
+}
+
+h3{
+   padding-top: 50px;
+}
+
+img{
+   margin-top: 1em;
+}
+
