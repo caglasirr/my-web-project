@@ -1,0 +1,89 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-5">
+                <div class="m-3">
+                    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" formControlName="name" placeholder="Ad / Soyad">
+                            <div *ngIf="formSubmitted && contactForm.get('name')?.invalid && contactForm.get('name')?.touched"
+                                class="alert alert-danger">
+                                <ul>
+                                    <li *ngIf="contactForm.get('name')?.errors?.required">İsim alanı boş bırakılamaz.
+                                    </li>
+                                    <li *ngIf="contactForm.get('name')?.errors?.minlength">İsim alanı uzunluğu en az 3
+                                        karakter olmalı.</li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" formControlName="phone"
+                                placeholder="(5xx) xxx-xxxx">
+                            <div *ngIf="formSubmitted && contactForm.get('phone')?.invalid && contactForm.get('phone')?.touched"
+                                class="alert alert-danger">
+                                <ul>
+                                    <li *ngIf="contactForm.get('phone')?.errors?.required">Telefon alanı boş
+                                        bırakılamaz.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="text" class="form-control" formControlName="email" placeholder="E-Posta">
+                            <div *ngIf="formSubmitted && contactForm.get('email')?.invalid && contactForm.get('email')?.touched"
+                                class="alert alert-danger">
+                                <ul>
+                                    <li *ngIf="contactForm.get('email')?.errors?.required">E-Posta alanı boş
+                                        bırakılamaz.</li>
+                                    <li *ngIf="contactForm.get('email')?.errors?.email">E-Posta adresi geçerli formatta
+                                        değil</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <select name="KONU" class="form-control" formControlName="subject">
+                                <optgroup label="DESTEK">
+                                    <option value="" selected disabled hidden>KONU</option>
+                                    <option value="destek">DESTEK TALEBİ</option>
+                                    <option value="egitim">EĞİTİM TALEBİ</option>
+                                </optgroup>
+                                <optgroup label="SATIŞ">
+                                    <option value="">DEMO TALEBİ</option>
+                                    <option value="gorusme">GÖRÜŞME TALEBİ</option>
+                                    <option value="urunvilgisi">ÜRÜNLER HAKKINDA BİLGİ</option>
+                                </optgroup>
+                                <optgroup label="BİLGİ">
+                                    <option value="onerisikayet">ÖNERİ VE ŞİKAYETLER</option>
+                                </optgroup>
+                            </select>
+                            <div *ngIf="formSubmitted && contactForm.get('subject')?.invalid && (contactForm.get('subject')?.touched || contactForm.get('subject')?.pristine)"
+                                class="alert alert-danger">
+                                <li *ngIf="contactForm.get('subject')?.errors?.required">Lütfen bir konu seçiniz.</li>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <textarea rows="6" placeholder="Mesajınız..." class="form-control"
+                                formControlName="message"></textarea>
+                            <div *ngIf="formSubmitted && contactForm.get('message')?.invalid && 
+                                       (contactForm.get('message')?.touched || contactForm.get('message')?.pristine) "
+                                class="alert alert-danger">
+                                <p *ngIf="contactForm.get('message')?.errors?.required">Mesaj alanı boş bırakılamaz.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div>
+                            <button type="submit" class="btn btn-success">GÖNDER</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

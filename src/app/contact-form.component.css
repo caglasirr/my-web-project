@@ -1,0 +1,14 @@
+section{
+    background-color: #bece70;
+    padding-top: 150px;
+    padding-bottom: 150px;
+}
+
+.form-control.ng-touched.ng-invalid{
+    border-left: 10px solid rgb(167, 50, 50);
+}
+
+.form-control.ng-dirty.ng-valid{
+    border-left: 10px solid rgb(103, 202, 73);
+}
+
